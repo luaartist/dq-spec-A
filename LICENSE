@@ -1,0 +1,47 @@
+DynamicQuant Attestation Specification (dq-spec-A)
+Copyright (c) 2025–2026 luaartist (github.com/luaartist)
+All rights reserved.
+
+PRE-RELEASE DRAFT — REQUEST FOR COMMENTS
+
+This repository contains a pre-release draft of the DynamicQuant
+Attestation Specification. No license to use, copy, modify, merge,
+distribute, sublicense, or sell any part of this work is granted
+until a stable v1.0 release is published.
+
+VIEWING AND COMMENTARY PERMITTED
+You may read, fork, and comment on this material solely for the
+purpose of providing feedback during the RFC period. No other rights
+are granted by this permission.
+
+INTENDED LICENSE ON STABLE RELEASE (v1.0)
+Upon publication of the v1.0 release (to be announced via a Zenodo
+DOI and a signed Git tag on this repository), the following licenses
+will apply:
+
+  - Paper and specification documents (paper/, docs/):
+    Creative Commons Attribution 4.0 International (CC-BY-4.0)
+    https://creativecommons.org/licenses/by/4.0/
+
+  - Schemas (schemas/):
+    Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+  - Test vectors (test-vectors/):
+    Creative Commons Zero 1.0 Universal (CC0-1.0)
+    https://creativecommons.org/publicdomain/zero/1.0/
+
+  - Reference verifier and implementation code (future, separate repo):
+    Apache License, Version 2.0
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Until that release tag is published and the Zenodo DOI is minted,
+ALL RIGHTS ARE RESERVED by the copyright holder.
+
+PATENT NOTICE
+No patent license is granted by this notice, express or implied.
+The copyright holder reserves all rights to seek patent protection
+for the methods, systems, and processes described in this work.
+
+NO WARRANTY
+THIS MATERIAL IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED.

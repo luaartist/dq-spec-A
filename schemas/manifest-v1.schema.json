@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dynamicquant.org/schemas/manifest-v1.schema.json",
+  "title": "DynamicQuant Attestation Manifest v1",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "release_id",
+    "released_at",
+    "engine",
+    "deghost",
+    "weights",
+    "signatures"
+  ],
+  "properties": {
+    "spec_version": { "const": "DQA-1" },
+    "release_id":   { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,64}$" },
+    "released_at":  { "type": "string", "format": "date-time" },
+    "engine": {
+      "type": "object",
+      "required": ["repo", "commit_sha", "version"],
+      "properties": {
+        "repo":       { "type": "string", "format": "uri" },
+        "commit_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "version":    { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "deghost": {
+      "type": "object",
+      "required": ["repo", "commit_sha", "version", "fingerprint_v2"],
+      "properties": {
+        "repo":           { "type": "string", "format": "uri" },
+        "commit_sha":     { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "version":        { "type": "string" },
+        "fingerprint_v2": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "weights": {
+      "type": "object",
+      "required": ["sha256", "size_bytes"],
+      "properties": {
+        "sha256":     { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "size_bytes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "anchors": {
+      "type": "array",
+      "description": "Optional freshness anchors; verifier policy determines which are required.",
+      "items": {
+        "type": "object",
+        "required": ["ledger", "txid", "anchored_at"],
+        "properties": {
+          "ledger": {
+            "type": "string",
+            "enum": ["nist-beacon-v2", "opentimestamps-bitcoin", "rekor"]
+          },
+          "txid":        { "type": "string" },
+          "anchored_at": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "signatures": {
+      "type": "array",
+      "description": "Must contain at least one Ed25519 and at least one ML-DSA-65 signature over the JCS-canonicalized payload (RFC 8785).",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["key_id", "alg", "sig"],
+        "properties": {
+          "key_id": { "type": "string" },
+          "alg":    { "type": "string", "enum": ["ed25519", "ml-dsa-65"] },
+          "sig":    { "type": "string", "pattern": "^[0-9a-f]+$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

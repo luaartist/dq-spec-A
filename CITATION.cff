@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this specification, please cite it as below."
+title: "DynamicQuant Attestation: Verifiable-Provenance Quantization with Unicode Pre-Flight and Multi-Anchor Manifests"
+abstract: >-
+  A specification combining a strict no_std RFC 3629 UTF-8 pre-flight filter
+  with per-module pinned fingerprints, a signed manifest that cross-references
+  a quantization engine, a Unicode filter, and a private rare-script oracle
+  by commit SHA and fingerprint, and multi-anchor timestamping across two
+  independent ledgers to establish tamper-evident priority.
+type: article
+authors:
+  - alias: luaartist
+    website: "https://github.com/luaartist"
+keywords:
+  - supply-chain security
+  - Unicode
+  - GlassWorm
+  - Trojan Source
+  - model provenance
+  - attestation
+  - transparency log
+  - quantization
+repository-code: "https://github.com/luaartist/dq-spec"
+version: "0.1.0-draft"
